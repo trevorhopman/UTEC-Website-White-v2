@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { MessageCircle, X, Send, User } from "lucide-react"
+import { MessageCircle, X, Send } from "lucide-react"
 
 const quickReplies = [
   "Schedule a consultation",
@@ -10,6 +10,104 @@ const quickReplies = [
   "Get a quote",
   "Speak with someone",
 ]
+
+let sharedAudioContext: AudioContext | null = null
+let chimePendingAfterGesture = false
+let audioUnlockListenersAttached = false
+
+function getSharedAudioContext(): AudioContext | null {
+  if (typeof window === "undefined") return null
+  const AC =
+    window.AudioContext ||
+    (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext
+  if (!AC) return null
+  if (!sharedAudioContext || sharedAudioContext.state === "closed") {
+    sharedAudioContext = new AC()
+  }
+  return sharedAudioContext
+}
+
+/** Short, soft two-tone ping — uses one shared context (must be running after a user gesture). */
+function scheduleSubtleChime(ctx: AudioContext) {
+  const t0 = ctx.currentTime + 0.02
+  const master = ctx.createGain()
+  master.connect(ctx.destination)
+  master.gain.setValueAtTime(0.0001, t0)
+  master.gain.exponentialRampToValueAtTime(0.2, t0 + 0.02)
+  master.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.22)
+
+  const a = ctx.createOscillator()
+  a.type = "sine"
+  a.frequency.setValueAtTime(1005, t0)
+  a.connect(master)
+  a.start(t0)
+  a.stop(t0 + 0.13)
+
+  const b = ctx.createOscillator()
+  b.type = "sine"
+  b.frequency.setValueAtTime(1315, t0 + 0.04)
+  b.connect(master)
+  b.start(t0 + 0.04)
+  b.stop(t0 + 0.19)
+}
+
+/** Browsers block audio until the user interacts; we queue the chime if needed. */
+function tryPlaySubtleNotificationChime() {
+  if (typeof window === "undefined") return
+  const ctx = getSharedAudioContext()
+  if (!ctx) return
+
+  const play = () => {
+    try {
+      scheduleSubtleChime(ctx)
+    } catch {
+      // ignore
+    }
+  }
+
+  if (ctx.state === "running") {
+    chimePendingAfterGesture = false
+    play()
+    return
+  }
+
+  void ctx
+    .resume()
+    .then(() => {
+      if (ctx.state === "running") {
+        play()
+        chimePendingAfterGesture = false
+      } else {
+        chimePendingAfterGesture = true
+      }
+    })
+    .catch(() => {
+      chimePendingAfterGesture = true
+    })
+}
+
+function attachAudioUnlockListeners() {
+  if (typeof window === "undefined" || audioUnlockListenersAttached) return
+  audioUnlockListenersAttached = true
+
+  const unlock = () => {
+    const ctx = getSharedAudioContext()
+    if (!ctx) return
+    void ctx.resume().then(() => {
+      if (!chimePendingAfterGesture || ctx.state !== "running") return
+      chimePendingAfterGesture = false
+      try {
+        scheduleSubtleChime(ctx)
+      } catch {
+        // ignore
+      }
+    })
+  }
+
+  for (const type of ["pointerdown", "keydown", "touchstart"] as const) {
+    window.addEventListener(type, unlock, { passive: true, capture: true })
+  }
+}
 
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,11 +120,18 @@ export function Chatbot() {
     },
   ])
 
-  // Show chatbot after 6 seconds
+  // Unlock path: most browsers require a click/tap/key before Web Audio can play.
+  useEffect(() => {
+    attachAudioUnlockListeners()
+  }, [])
+
+  // Reveal chatbot, open panel, and chime after 10 seconds on the page
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true)
-    }, 6000)
+      setIsOpen(true)
+      tryPlaySubtleNotificationChime()
+    }, 10_000)
 
     return () => clearTimeout(timer)
   }, [])
@@ -157,7 +262,7 @@ export function Chatbot() {
       {/* Toggle Button */}
       <Button
         onClick={() => setIsOpen(!isOpen)}
-        className={`group h-14 w-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 ${
+        className={`group relative h-14 w-14 rounded-full shadow-lg transition-all duration-300 hover:scale-110 ${
           isOpen
             ? "bg-gray-600 hover:bg-gray-700"
             : "bg-[#ED1E24] hover:bg-[#d91a1f] animate-in fade-in zoom-in duration-500"
