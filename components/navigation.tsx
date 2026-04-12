@@ -14,6 +14,7 @@ import {
   Menu, Phone, ChevronDown, Monitor, Shield, Printer, FileText, MoreHorizontal,
   Users, Briefcase, HelpCircle, LogIn, UserCircle, Ticket, Share2, Mic, BookOpen, Mail, MapPin
 } from "lucide-react"
+import { UTEC_LOGO_URL } from "@/lib/branding"
 
 const services = [
   { icon: Monitor, label: "Managed IT Services", href: "/services/managed-it" },
@@ -67,7 +68,7 @@ export function Navigation() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <img
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-nxzAIZuaA1acCEeGEvPNNioh1oqrPb.png"
+            src={UTEC_LOGO_URL}
             alt="UTEC"
             className="h-10 w-auto"
           />
