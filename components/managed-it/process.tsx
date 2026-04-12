@@ -81,7 +81,7 @@ export function ManagedITProcess() {
               >
                 {/* Icon Container */}
                 <div className="relative mb-6">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#ED1E24] shadow-lg shadow-red-200">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#ED1E24] shadow-lg shadow-red-200 transition-all duration-200 hover:scale-105 hover:shadow-lg">
                     <step.icon className="h-8 w-8 text-white" />
                   </div>
                   {/* Step Number */}

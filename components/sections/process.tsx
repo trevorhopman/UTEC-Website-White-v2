@@ -87,7 +87,7 @@ export function ProcessSection() {
                 >
                   {/* Icon Container */}
                   <div className="relative mb-8">
-                    <div className="flex h-28 w-28 items-center justify-center rounded-full bg-[#ED1E24] shadow-lg">
+                    <div className="flex h-28 w-28 items-center justify-center rounded-full bg-[#ED1E24] shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-lg">
                       <step.icon className="h-12 w-12 text-white" strokeWidth={1.5} />
                     </div>
                     {/* Step Number Badge - Black circle */}
