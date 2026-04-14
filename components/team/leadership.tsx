@@ -1,27 +1,39 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { Linkedin } from "lucide-react"
 
-const leaders = [
+type LeaderCard = {
+  name: string
+  title: string
+  bio: string
+  linkedin: string
+  image?: string
+}
+
+const leaders: LeaderCard[] = [
   {
     name: "Kevin Van Kannel",
     title: "President",
     bio: "Kevin leads UTEC with over 20 years of experience in managed IT services. He is passionate about building long-term partnerships and delivering technology solutions that drive business success.",
     linkedin: "#",
+    image: "/team/kevin-van-kannel.png",
   },
   {
     name: "Tom Wykowski",
     title: "Service Manager",
     bio: "Tom oversees UTEC's service delivery team, ensuring clients receive responsive and reliable support. His technical expertise and leadership keep operations running smoothly.",
     linkedin: "#",
+    image: "/team/tom-wykowski.png",
   },
   {
     name: "Les Harris",
     title: "Director of Sales",
     bio: "Les works closely with businesses to understand their technology needs and match them with the right solutions. He brings decades of experience in IT consulting and business development.",
     linkedin: "#",
+    image: "/team/les-harris.png",
   },
   {
     name: "Sarah Mitchell",
@@ -94,12 +106,27 @@ export function LeadershipTeam() {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              {/* Avatar Placeholder */}
-              <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-[#ED1E24]/10 to-[#ED1E24]/5">
-                <span className="text-2xl font-bold text-[#ED1E24]">
-                  {leader.name.split(' ').map(n => n[0]).join('')}
-                </span>
-              </div>
+              {/* Headshot or initials */}
+              {leader.image ? (
+                <div className="relative mx-auto mb-6 aspect-square w-32 overflow-hidden rounded-full bg-gray-100 shadow-sm ring-2 ring-[#ED1E24]/15 sm:w-36">
+                  <Image
+                    src={leader.image}
+                    alt={`Portrait of ${leader.name}`}
+                    fill
+                    className="object-cover object-[center_16%] sm:object-[center_20%]"
+                    sizes="144px"
+                  />
+                </div>
+              ) : (
+                <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-[#ED1E24]/10 to-[#ED1E24]/5 sm:h-[8.5rem] sm:w-[8.5rem]">
+                  <span className="text-2xl font-bold text-[#ED1E24] sm:text-3xl">
+                    {leader.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                  </span>
+                </div>
+              )}
 
               {/* Name & Title */}
               <h3 className="text-center text-xl font-semibold text-[#1E1A1C]">

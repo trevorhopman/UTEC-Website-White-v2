@@ -11,14 +11,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { 
-  Menu, Phone, ChevronDown, Monitor, Shield, Printer, FileText, MoreHorizontal,
+  Menu, Phone, ChevronDown, Monitor, Presentation, Printer, FileText, MoreHorizontal,
   Users, Briefcase, HelpCircle, LogIn, UserCircle, Ticket, Share2, Mic, BookOpen, Mail, MapPin
 } from "lucide-react"
 import { UTEC_LOGO_URL } from "@/lib/branding"
 
 const services = [
   { icon: Monitor, label: "Managed IT Services", href: "/services/managed-it" },
-  { icon: Shield, label: "Cybersecurity", href: "/services/cybersecurity" },
+  { icon: Presentation, label: "Audio Visual", href: "/services/audio-visual" },
   { icon: Printer, label: "Office Technology Hardware", href: "/services/office-technology" },
   { icon: FileText, label: "Managed Print", href: "/services/managed-print" },
   { icon: Phone, label: "VOIP Phone Systems", href: "/services/voip" },

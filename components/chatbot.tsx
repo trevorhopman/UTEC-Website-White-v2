@@ -162,7 +162,8 @@ export function Chatbot() {
       if (reply.includes("consultation")) {
         response = "Great! I can help you schedule a free IT consultation. What's the best time for you? You can also call us directly at (734) 996-0466."
       } else if (reply.includes("IT services")) {
-        response = "We offer Managed IT Services, Cybersecurity, Cloud Solutions, and Office Technology. Which area would you like to learn more about?"
+        response =
+          "We offer Managed IT Services (including security), Audio Visual solutions for meeting rooms and signage, Cloud Solutions, and Office Technology. Which area would you like to learn more about?"
       } else if (reply.includes("quote")) {
         response = "I'd be happy to help you get a quote. Our team will need to understand your current setup. Would you like to schedule a free assessment?"
       } else {

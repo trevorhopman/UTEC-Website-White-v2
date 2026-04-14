@@ -12,7 +12,7 @@ const differentiators = [
   {
     icon: Layers,
     title: "One partner for everything",
-    description: "IT, cybersecurity, copiers, printers, and office technology",
+    description: "Managed IT and security, conference room AV, copiers, printers, and office technology",
   },
   {
     icon: Zap,

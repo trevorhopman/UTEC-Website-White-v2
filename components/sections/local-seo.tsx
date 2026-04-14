@@ -69,9 +69,9 @@ export function LocalSeoSection() {
               Local IT services in Ann Arbor and Southeast Michigan
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-gray-600">
-              UTEC provides managed IT services, cybersecurity, and office technology
-              solutions for businesses throughout the region. Our local presence means
-              faster response times and personalized service.
+              UTEC provides managed IT services (including security hardening), professional audio visual, and office
+              technology solutions for businesses throughout the region. Our local presence means faster response
+              times and personalized service.
             </p>
 
             {/* Locations Grid */}

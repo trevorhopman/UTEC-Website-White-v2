@@ -49,13 +49,12 @@ export function HeroSection() {
             </h1>
 
             <p className="mt-6 text-pretty text-lg leading-relaxed text-gray-600 sm:text-xl">
-              UTEC delivers managed IT, cybersecurity, and office technology solutions
-              for growing businesses in Ann Arbor, Troy, and Southeast Michigan.
+              UTEC delivers managed IT (with layered security against ransomware and phishing), professional audio
+              visual, and office technology for growing businesses in Ann Arbor, Troy, and Southeast Michigan.
             </p>
 
             <p className="mt-4 text-pretty text-base leading-relaxed text-gray-500">
-              We prevent downtime, reduce risk, and simplify your technology with one
-              reliable local partner.
+              We prevent downtime, reduce risk, and simplify your technology with one reliable local partner.
             </p>
 
             {/* CTA Buttons */}

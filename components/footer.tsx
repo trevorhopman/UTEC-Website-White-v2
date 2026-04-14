@@ -3,8 +3,8 @@ import { Phone, MapPin, Mail } from "lucide-react"
 
 const footerLinks = {
   services: [
-    { label: "Managed IT Services", href: "#" },
-    { label: "Cybersecurity", href: "#" },
+    { label: "Managed IT Services", href: "/services/managed-it" },
+    { label: "Audio Visual", href: "/services/audio-visual" },
     { label: "Cloud Solutions", href: "#" },
     { label: "Managed Print Services", href: "#" },
     { label: "Office Equipment", href: "#" },
@@ -33,8 +33,8 @@ export function Footer() {
               />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
-              Managed IT services, cybersecurity, and office technology for businesses
-              in Southeast Michigan.
+              Managed IT (including security), audio visual, and office technology for businesses in Southeast
+              Michigan.
             </p>
             <div className="mt-6 space-y-3">
               <Link

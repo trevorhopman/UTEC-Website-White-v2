@@ -11,7 +11,8 @@ import {
 const faqs = [
   {
     question: "What are Managed IT Services?",
-    answer: "Managed IT Services provide comprehensive technology support for your business, including proactive monitoring, helpdesk support, cybersecurity, backup and recovery, and technology planning. Instead of reacting to problems, we prevent them before they impact your operations.",
+    answer:
+      "Managed IT Services provide comprehensive technology support for your business, including proactive monitoring, helpdesk support, backup and recovery, and technology planning. Security is woven throughout—not a bolt-on—including protections and practices against ransomware, phishing, unsafe email attachments, and risky endpoints. Instead of reacting to problems, we prevent them before they impact your operations.",
   },
   {
     question: "How fast is support response?",
@@ -34,8 +35,9 @@ const faqs = [
     answer: "Yes, we provide comprehensive Microsoft 365 support including setup, migration, administration, security configuration, and user training. We help you get the most value from your Microsoft investment.",
   },
   {
-    question: "Can you improve our cybersecurity?",
-    answer: "Security is integrated into everything we do. We implement security best practices, monitor for threats, manage patches and updates, provide employee security awareness, and help protect your business from ransomware and phishing attacks.",
+    question: "How is cybersecurity handled under Managed IT?",
+    answer:
+      "Cybersecurity is part of your managed service, not a separate silo. We implement layered controls aligned to your risk: patching discipline, identity and email protections where appropriate, backup integrity checks, monitoring, and user-friendly guidance so security upgrades don’t slow the business down. We focus on practical defenses against ransomware, phishing, and credential theft.",
   },
   {
     question: "Do you support hybrid teams?",

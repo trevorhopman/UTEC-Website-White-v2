@@ -37,8 +37,11 @@ export function ManagedITHero() {
             {/* Subheadline */}
             <p className="mt-6 text-lg leading-relaxed text-gray-600 sm:text-xl">
               UTEC delivers fully managed IT services for businesses in Ann Arbor, Troy, and Southeast Michigan.
-              We reduce downtime, strengthen security, and simplify technology management so your team can stay
-              focused on what matters most.
+              We reduce downtime, simplify technology management, and build in{" "}
+              <strong className="font-semibold text-[#1E1A1C]">
+                layered security against ransomware, phishing, and data loss
+              </strong>{" "}
+              — so your team can stay focused on what matters most.
             </p>
 
             {/* CTAs */}
