@@ -161,4 +161,27 @@
       will-change: auto;
     }
   }
+
+  /* AV hero: subtle vertical float */
+  @keyframes av-hero-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-av-hero-float {
+    animation: av-hero-float 5.5s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-av-hero-float {
+      animation: none;
+      will-change: auto;
+    }
+  }
 }

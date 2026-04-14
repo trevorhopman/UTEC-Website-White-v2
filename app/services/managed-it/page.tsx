@@ -14,7 +14,7 @@ import { Footer } from "@/components/footer"
 export const metadata: Metadata = {
   title: "Managed IT Services | UTEC - Ann Arbor & Troy, Michigan",
   description:
-    "Proactive IT support that keeps your business running smoothly. UTEC delivers fully managed IT services for businesses in Ann Arbor, Troy, and Southeast Michigan.",
+    "Proactive IT support with layered security against ransomware and phishing. UTEC delivers fully managed IT services for businesses in Ann Arbor, Troy, and Southeast Michigan.",
 }
 
 export default function ManagedITPage() {

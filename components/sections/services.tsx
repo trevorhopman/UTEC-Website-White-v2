@@ -2,20 +2,22 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import { Monitor, Shield, Printer, Phone, FileText, MoreHorizontal, ArrowRight } from "lucide-react"
+import { Monitor, Presentation, Printer, Phone, FileText, MoreHorizontal, ArrowRight } from "lucide-react"
 
 const services = [
   {
     icon: Monitor,
     title: "Managed IT Services",
-    description: "Proactive monitoring, helpdesk support, device management, and backups to keep your business running smoothly",
-    href: "#",
+    description:
+      "Proactive monitoring, helpdesk support, device management, backups, and layered security—including ransomware and phishing defenses—to keep your business running smoothly",
+    href: "/services/managed-it",
   },
   {
-    icon: Shield,
-    title: "Cybersecurity",
-    description: "Protect your business from ransomware, phishing, and data breaches with enterprise-grade security solutions",
-    href: "#",
+    icon: Presentation,
+    title: "Audio Visual",
+    description:
+      "Conference rooms, commercial displays, video walls, Microsoft Teams Rooms, digital signage, and room audio—designed, installed, and supported end to end",
+    href: "/services/audio-visual",
   },
   {
     icon: Printer,

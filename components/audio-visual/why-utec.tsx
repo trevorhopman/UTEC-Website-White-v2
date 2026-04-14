@@ -1,52 +1,52 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { MapPin, Zap, Layers, Shield, MessageSquare, Building, Handshake, Award } from "lucide-react"
+import { MapPin, Layers, Wrench, MessageSquare, Building, Handshake, Award, Link2 } from "lucide-react"
 
 const differentiators = [
   {
     icon: MapPin,
-    title: "Local Support Team",
-    description: "Based in Ann Arbor and Troy with fast response times",
+    title: "Local delivery team",
+    description: "Ann Arbor and Troy based—onsite surveys, installs, and service calls",
   },
   {
-    icon: Zap,
-    title: "Fast Response Times",
-    description: "When issues matter most, we're there quickly",
+    icon: Link2,
+    title: "AV + IT together",
+    description: "Switches, VLANs, Wi-Fi, and security aligned with room systems",
   },
   {
     icon: Layers,
-    title: "One Partner",
-    description: "Managed IT (including security), AV, and office technology under one roof",
+    title: "One accountable partner",
+    description: "Fewer finger-pointing issues between “the AV vendor” and “the IT vendor”",
   },
   {
-    icon: Shield,
-    title: "Proactive Approach",
-    description: "Focused on prevention, not just fixing problems",
+    icon: Wrench,
+    title: "Standards that scale",
+    description: "Repeatable room kits so support and training stay simple as you grow",
   },
   {
     icon: MessageSquare,
-    title: "Clear Communication",
-    description: "Technology explained in language you understand",
+    title: "Plain-language guidance",
+    description: "Specs translated into outcomes your leadership team understands",
   },
   {
     icon: Building,
-    title: "Right-Sized Solutions",
-    description: "Tailored for small and mid-sized businesses",
+    title: "Right-sized for SMB",
+    description: "Enterprise-grade thinking without unnecessary complexity",
   },
   {
     icon: Handshake,
-    title: "Partnership Mindset",
-    description: "Long-term technology partnership, not just vendor",
+    title: "Long-term partnership",
+    description: "Roadmaps for upgrades, warranties, and refreshes—not one-off installs",
   },
   {
     icon: Award,
-    title: "Michigan Experience",
-    description: "Supporting organizations across multiple industries",
+    title: "Michigan experience",
+    description: "Boardrooms, training centers, lobbies, and multi-location clients",
   },
 ]
 
-export function ManagedITWhyUtec() {
+export function AudioVisualWhyUtec() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -70,23 +70,21 @@ export function ManagedITWhyUtec() {
   return (
     <section ref={sectionRef} className="bg-gray-50 py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div
           className={`mx-auto max-w-3xl text-center transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <h2 className="text-balance text-3xl font-bold tracking-tight text-[#1E1A1C] sm:text-4xl">
-            A better IT partner for growing organizations
+            A better partner for workplace collaboration technology
           </h2>
         </div>
 
-        {/* Differentiators Grid */}
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {differentiators.map((item, index) => (
             <div
               key={index}
-              className={`group rounded-xl bg-white p-6 shadow-sm border border-gray-100 transition-all duration-500 hover:shadow-md hover:border-[#ED1E24]/20 ${
+              className={`group rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-500 hover:border-[#ED1E24]/20 hover:shadow-md ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${index * 75}ms` }}

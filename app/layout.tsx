@@ -15,15 +15,17 @@ function siteUrl() {
   return 'http://localhost:3000'
 }
 
-const ogTitle = 'UTEC | Managed IT Services & Cybersecurity'
+const ogTitle = 'UTEC | Managed IT, Security & Audio Visual'
 const ogDescription =
-  'Technology that just works — so your business can too. Local IT support in Ann Arbor & Southeast Michigan.'
+  'Technology that just works — so your business can too. Managed IT, security, audio visual, and office technology in Ann Arbor & Southeast Michigan.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
-  title: 'UTEC | Managed IT Services & Cybersecurity | Ann Arbor & Southeast Michigan',
-  description: 'UTEC delivers managed IT services, cybersecurity, and office technology solutions for businesses in Ann Arbor, Troy, and Southeast Michigan. Local team of 60 experts.',
-  keywords: 'managed IT services, cybersecurity, IT support, Ann Arbor, Troy, Detroit, Southeast Michigan, copiers, printers, office technology',
+  title: 'UTEC | Managed IT, Security & Audio Visual | Ann Arbor & Southeast Michigan',
+  description:
+    'UTEC delivers managed IT services (including security), professional audio visual, and office technology for businesses in Ann Arbor, Troy, and Southeast Michigan. Local team of 60 experts.',
+  keywords:
+    'managed IT services, IT security, ransomware protection, audio visual, conference rooms, Microsoft Teams Rooms, digital signage, IT support, Ann Arbor, Troy, Detroit, Southeast Michigan, copiers, printers, office technology',
   generator: 'v0.app',
   icons: {
     icon: [
